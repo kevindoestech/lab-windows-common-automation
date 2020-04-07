@@ -2,11 +2,13 @@
 $myModule = 'PSWindowsUpdate'
 
 try {
+    If ($null -eq (Get-Module -Name $myModule)){
+        Install-Module -Name $myModule
+    }
     Import-Module -Name $myModule
 }
 catch {
-    Install-Module -Name $myModule
-    Import-Module -Name $myModule
+    
 }
 finally {
     Get-Module -Name $myModule
